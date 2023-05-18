@@ -4,6 +4,13 @@
 <xacro:include filename="$(find adasa_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find adasa_description)/urdf/adasa.gazebo" />
 <xacro:include filename="$(find adasa_description)/urdf/adasa.trans" />
+<xacro:macro name="box_inertia" params="m w h d">
+    <inertial>
+      <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi/2}"/>      
+      <mass value="${m}"/>
+      <inertia ixx="${(m/12) * (h*h + d*d)}" ixy="0.0" ixz="0.0" iyy="${(m/12) * (w*w + d*d)}" iyz="0.0" izz="${(m/12) * (w*w + h*h)}"/>
+    </inertial>
+  </xacro:macro>
 
 <link name="robot_footprint"></link>
   
@@ -154,6 +161,26 @@
   </collision>
 </link>
 
+<link name="zed2_imu">
+  <visual>
+    <origin xyz="-7.524407923120702e-07 -0.00031422029663863427 0.014372758300766675" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.01 0.01 0.01"/>
+    </geometry>
+  </visual>
+
+  <collision>
+    <origin xyz="-7.524407923120702e-07 -0.00031422029663863427 0.014372758300766675" rpy="0 0 0"/>
+    <geometry>
+      <box size="0.01 0.01 0.01"/>
+    </geometry>
+  </collision>
+
+  <xacro:box_inertia m="0.01" w="0.01" d="0.01" h="0.01"/>
+</link>
+
+<link name="zed2_depth_frame"/>
+
 <link name="omniwheel_1">
   <inertial>
     <origin xyz="-1.761101037361934e-07 -1.7904227966880626e-07 -3.9335926738104376e-07" rpy="0 0 0"/>
@@ -217,6 +244,19 @@
   <origin xyz="-0.093709 -0.423249 0.218212" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="zed2_1"/>
+</joint>
+
+<joint name="zed2_imu_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="zed2_1"/>
+  <child link="zed2_imu"/>
+</joint>
+
+<joint name="zed2_depth_joint" type="fixed">
+  <!-- <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/> -->
+  <origin xyz="0.0 0.0 0.0" rpy="${-pi/2} 0 ${-pi}"/>
+  <parent link="zed2_1"/>
+  <child link="zed2_depth_frame"/>
 </joint>
 
 <joint name="omni_joint" type="continuous">

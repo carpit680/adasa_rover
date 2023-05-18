@@ -23,15 +23,16 @@ def generate_launch_description():
     urdf = robot_description_config.toxml()
 
     # Rviz config file
-    rviz_file_name = 'rviz/adasa.rviz'
-    rviz_config = os.path.join(package_share, rviz_file_name)
+    rviz_file_name = '/home/arpit/ros2/adasa_ws/src/adasa_rover/adasa_description/rviz/adasa.rviz'
+    rviz_config = rviz_file_name  # os.path.join(package_share, rviz_file_name)
 
     # World file
     world_file_name = 'empty.world'
     world_path = os.path.join(package_share, 'worlds', world_file_name)
 
     # Map file
-    map_path = os.path.join(package_share, 'maps', world_file_name)
+    map_file_name = 'map.yaml'
+    map_path = os.path.join(package_share, 'maps', map_file_name)
 
     world = LaunchConfiguration('world')
     declare_world_cmd = DeclareLaunchArgument(
@@ -126,15 +127,15 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        # declare_map_cmd,
+        declare_map_cmd,
         declare_world_cmd,
-        # map_server,
+        map_server,
         declare_sim_time_cmd,
         gazebo_server,
         gazebo_client,
         robot_state_publisher,
         joint_state_publisher,
-        joint_state_publisher_gui,
+        # joint_state_publisher_gui,
         spawn_entity,
         rviz2
     ])
