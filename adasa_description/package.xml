@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+
+  <name>adasa_description</name>
+  <version>1.0.0</version>
+  <description>This package contains configuration data, 3D models, URDF, and launch files for ADASA robot</description>
+
+  <author email="carpit680@gmail.com">Arpit Chauhan</author>
+  <maintainer email="carpit680@gmail.com">Arpit Chauhan</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>joint_state_publisher</depend>
+  <depend>joint_state_publisher_gui</depend>
+  <depend>teleop_twist_keyyboard</depend>
+  <depend>ros2_control</depend>
+  <depend>gazebo_ros_pkgs</depend>
+  <depend>gazebo_ros2_control</depend>
+  <depend>gazebo_ros2_control</depend>
+  <depend>gazebo_ros</depend>
+  <depend>gazebo_plugins</depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>ros2launch</exec_depend>
+  <depend>joint_state_publisher</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+
+</package>

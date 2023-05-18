@@ -1,0 +1,101 @@
+<?xml version="1.0" ?>
+<robot name="adasa" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+<xacro:property name="red" value="Gazebo/Red" />
+<xacro:property name="grey" value="Gazebo/Grey" />
+<xacro:property name="yellow" value="Gazebo/Yellow" />
+<xacro:property name="blue" value="Gazebo/Blue" />
+
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo>
+<gazebo reference="base_link">
+  <material>${red}</material>
+  <mu1>0.0</mu1>
+  <mu2>0.0</mu2>
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="right_wheel_1">
+  <material>${grey}</material>
+  <mu1>0.5</mu1>
+  <mu2>0.5</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="left_wheel_1">
+  <material>${grey}</material>
+  <mu1>0.5</mu1>
+  <mu2>0.5</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="sonar_left_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="sonar_right_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="sonar_back_1">
+  <material>${yellow}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="zed2_1">
+  <material>${blue}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="omniwheel_1">
+  <material>${grey}</material>
+  <mu1>0.0</mu1>
+  <mu2>0.0</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo>
+
+<!--Gazebo Differential Drive Plugin-->
+<gazebo>
+  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+    <always_on>true</always_on>
+    <legacy_mode>false</legacy_mode>
+    <update_rate>100</update_rate>
+    <ros_debug_level>na</ros_debug_level>
+    <left_joint>right_wheel_joint</left_joint>
+    <right_joint>left_wheel_joint</right_joint>
+    <wheel_separation>0.37526</wheel_separation>
+    <wheel_diameter>0.533019</wheel_diameter>
+    <robot_base_frame>robot_footprint</robot_base_frame>
+    <wheel_acceleration>1.0</wheel_acceleration>
+    <wheel_torque>20</wheel_torque>
+    <command_topic>cmd_vel</command_topic>
+    <odometry_source>1</odometry_source>
+    <odometry_topic>odom</odometry_topic>
+    <odometry_frame>odom</odometry_frame>
+    <publish_tf>1</publish_tf>
+    <publish_odom>true</publish_odom>
+    <publish_odomTF>true</publish_odomTF>
+    <publish_wheel_joint_state>false</publish_wheel_joint_state>
+    <publish_wheel_TF>false</publish_wheel_TF>
+  </plugin>
+</gazebo>
+
+</robot>
+
