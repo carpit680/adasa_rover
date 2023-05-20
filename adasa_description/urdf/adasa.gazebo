@@ -73,29 +73,31 @@
 
 <!--Gazebo Differential Drive Plugin-->
 <gazebo>
-  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-    <always_on>true</always_on>
-    <legacy_mode>false</legacy_mode>
-    <update_rate>100</update_rate>
-    <ros_debug_level>na</ros_debug_level>
-    <left_joint>right_wheel_joint</left_joint>
-    <right_joint>left_wheel_joint</right_joint>
-    <wheel_separation>0.37526</wheel_separation>
-    <wheel_diameter>0.533019</wheel_diameter>
-    <robot_base_frame>robot_footprint</robot_base_frame>
-    <wheel_acceleration>1.0</wheel_acceleration>
-    <wheel_torque>20</wheel_torque>
-    <command_topic>cmd_vel</command_topic>
-    <odometry_source>1</odometry_source>
-    <odometry_topic>odom</odometry_topic>
-    <odometry_frame>odom</odometry_frame>
-    <publish_tf>1</publish_tf>
-    <publish_odom>true</publish_odom>
-    <publish_odomTF>true</publish_odomTF>
-    <publish_wheel_joint_state>false</publish_wheel_joint_state>
-    <publish_wheel_TF>false</publish_wheel_TF>
-  </plugin>
+  <plugin name="gazebo_ros_diff_drive" filename="libgazebo_ros_diff_drive.so">
+      <update_rate>100</update_rate>
+
+      <left_joint>right_wheel_joint</left_joint>
+      <right_joint>left_wheel_joint</right_joint>
+
+      <wheel_separation>0.37526</wheel_separation>
+      <wheel_diameter>0.533019</wheel_diameter>
+
+      <max_wheel_torque>20</max_wheel_torque>
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+      <command_topic>cmd_vel</command_topic>
+
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>true</publish_wheel_tf>
+
+      <odometry_topic>odom</odometry_topic>
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+
+    </plugin>
 </gazebo>
+
 
 <gazebo reference="zed2_imu">
   <sensor name="imu_sensor" type="imu">
@@ -171,10 +173,11 @@
     <visualize>true</visualize>
     <update_rate>30.0</update_rate>
     <camera name="camera">
-      <horizontal_fov>1.047198</horizontal_fov>
+      <horizontal_fov>1.91986</horizontal_fov>
+      <vertical_fov>1.22173</vertical_fov>
       <image>
-        <width>640</width>
-        <height>480</height>
+        <width>1080</width>
+        <height>540</height>
         <format>R8G8B8</format>
       </image>
       <clip>
@@ -183,12 +186,12 @@
       </clip>
     </camera>
     <plugin name="depth_camera_controller" filename="libgazebo_ros_camera.so">
-      <baseline>0.2</baseline>
+      <baseline>0.12</baseline>
       <alwaysOn>true</alwaysOn>
       <updateRate>0.0</updateRate>
       <frame_name>zed2_depth_frame</frame_name>
-      <pointCloudCutoff>0.5</pointCloudCutoff>
-      <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+      <pointCloudCutoff>0.2</pointCloudCutoff>
+      <pointCloudCutoffMax>20.0</pointCloudCutoffMax>
       <distortionK1>0</distortionK1>
       <distortionK2>0</distortionK2>
       <distortionK3>0</distortionK3>

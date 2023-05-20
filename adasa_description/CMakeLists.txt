@@ -11,7 +11,7 @@ find_package(gazebo_ros REQUIRED)
 
 find_package(ament_cmake REQUIRED)
 
-install(DIRECTORY launch meshes urdf worlds rviz maps routes param
+install(DIRECTORY launch meshes urdf worlds rviz maps
   DESTINATION share/${PROJECT_NAME}
   USE_SOURCE_PERMISSIONS
 )

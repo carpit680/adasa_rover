@@ -23,6 +23,8 @@
   <depend>navigation2</depend>
   <depend>nav2_bringup</depend>
   <depend>robot_localization</depend>
+  <depend>pointcloud_to_laserscan</depend>
+  <depend>slam_toolbox</depend>
 
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>rviz2</exec_depend>

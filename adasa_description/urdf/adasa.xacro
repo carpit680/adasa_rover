@@ -12,7 +12,7 @@
     </inertial>
   </xacro:macro>
 
-<link name="robot_footprint"></link>
+<!-- <link name="robot_footprint"></link> -->
   
 <link name="base_link">
   <inertial>
@@ -202,11 +202,11 @@
   </collision>
 </link>
 
-<joint name="robot_footprint_joint" type="fixed">
+<!-- <joint name="robot_footprint_joint" type="fixed">
   <origin xyz="0 0 0" rpy="0 0 0" />
   <parent link="robot_footprint" />
   <child link="base_link" />
-</joint>
+</joint> -->
 
 <joint name="right_wheel_joint" type="continuous">
   <origin xyz="0.134156 -0.20063 0.270081" rpy="0 0 0"/>
@@ -241,7 +241,7 @@
 </joint>
 
 <joint name="zed2_joint" type="fixed">
-  <origin xyz="-0.093709 -0.423249 0.218212" rpy="0 0 0"/>
+  <origin xyz="-0.093709 -0.423249 0.218212" rpy="0 0 ${-pi/2}"/>
   <parent link="base_link"/>
   <child link="zed2_1"/>
 </joint>
@@ -254,8 +254,8 @@
 
 <joint name="zed2_depth_joint" type="fixed">
   <!-- <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/> -->
-  <origin xyz="0.0 0.0 0.0" rpy="${-pi/2} 0 ${-pi}"/>
-  <parent link="zed2_1"/>
+  <origin xyz="-0.093709 -0.423249 0.218212" rpy="${-pi/2} 0 ${-pi}"/>
+  <parent link="base_link"/>
   <child link="zed2_depth_frame"/>
 </joint>
 
