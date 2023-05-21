@@ -6,7 +6,7 @@
 <xacro:include filename="$(find adasa_description)/urdf/adasa.trans" />
 <xacro:macro name="box_inertia" params="m w h d">
     <inertial>
-      <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi/2}"/>      
+      <origin xyz="0.0003135266393176628 -1.062322295417484e-06 0.014372758300766675" rpy="${pi/2} 0 ${pi/2}"/>      
       <mass value="${m}"/>
       <inertia ixx="${(m/12) * (h*h + d*d)}" ixy="0.0" ixz="0.0" iyy="${(m/12) * (w*w + d*d)}" iyz="0.0" izz="${(m/12) * (w*w + h*h)}"/>
     </inertial>
@@ -16,9 +16,9 @@
   
 <link name="base_link">
   <inertial>
-    <origin xyz="-0.09373367565464429 0.043524088612367694 0.3870042255868827" rpy="0 0 0"/>
-    <mass value="25.06257514481182"/>
-    <inertia ixx="0.706478" iyy="0.938773" izz="0.550345" ixy="3e-05" iyz="-0.041484" ixz="-0.000104"/>
+    <origin xyz="-0.2438617822696889 -0.0007259855361472208 0.3870042255868824" rpy="0 0 0"/>
+    <mass value="25.062575144811834"/>
+    <inertia ixx="0.938773" iyy="0.706478" izz="0.550345" ixy="-3e-05" iyz="-0.000104" ixz="0.041484"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -37,19 +37,19 @@
 
 <link name="right_wheel_1">
   <inertial>
-    <origin xyz="-0.03899083387551405 4.553545923380309e-07 -1.60449156524356e-05" rpy="0 0 0"/>
+    <origin xyz="-1.490119134334709e-07 -0.038991143757016955 -1.604491565254662e-05" rpy="0 0 0"/>
     <mass value="28.85566496898562"/>
-    <inertia ixx="1.566029" iyy="0.78734" izz="0.787172" ixy="-8e-06" iyz="-0.0" ixz="-0.0"/>
+    <inertia ixx="0.78734" iyy="1.566029" izz="0.787172" ixy="8e-06" iyz="-0.0" ixz="0.0"/>
   </inertial>
   <visual>
-    <origin xyz="-0.134156 0.20063 -0.270081" rpy="0 0 0"/>
+    <origin xyz="-0.000292 -0.227164 -0.270081" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="pa_12_nylon_pa_603cf_with_eos_p_3d_printers"/>
   </visual>
   <collision>
-    <origin xyz="-0.134156 0.20063 -0.270081" rpy="0 0 0"/>
+    <origin xyz="-0.000292 -0.227164 -0.270081" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -58,19 +58,19 @@
 
 <link name="left_wheel_1">
   <inertial>
-    <origin xyz="0.03899115761286903 5.126278554978825e-07 -1.6029280550888814e-05" rpy="0 0 0"/>
+    <origin xyz="-2.0628517688914706e-07 0.03899084773136638 -1.602928055072228e-05" rpy="0 0 0"/>
     <mass value="28.85566507173454"/>
-    <inertia ixx="1.566029" iyy="0.78734" izz="0.787172" ixy="-8e-06" iyz="0.0" ixz="0.0"/>
+    <inertia ixx="0.78734" iyy="1.566029" izz="0.787172" ixy="8e-06" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.321575 0.20063 -0.270081" rpy="0 0 0"/>
+    <origin xyz="-0.000292 0.228567 -0.270081" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="pa_12_nylon_pa_603cf_with_eos_p_3d_printers"/>
   </visual>
   <collision>
-    <origin xyz="0.321575 0.20063 -0.270081" rpy="0 0 0"/>
+    <origin xyz="-0.000292 0.228567 -0.270081" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -79,19 +79,19 @@
 
 <link name="sonar_left_1">
   <inertial>
-    <origin xyz="0.0013472013924955284 4.39810035185173e-05 0.008604642924829042" rpy="0 0 0"/>
+    <origin xyz="-4.4674660839572056e-05 0.0013468915109928203 0.008604642924829042" rpy="0 0 0"/>
     <mass value="0.0035755151099839755"/>
-    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="-0.140987 -0.084674 -0.26223" rpy="0 0 0"/>
+    <origin xyz="0.285011 -0.233995 -0.26223" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/sonar_left_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="polymide_kapton"/>
   </visual>
   <collision>
-    <origin xyz="-0.140987 -0.084674 -0.26223" rpy="0 0 0"/>
+    <origin xyz="0.285011 -0.233995 -0.26223" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/sonar_left_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -100,19 +100,19 @@
 
 <link name="sonar_right_1">
   <inertial>
-    <origin xyz="-8.32619407382107e-05 0.001308214959933121 0.008593705583429478" rpy="0 0 0"/>
+    <origin xyz="-0.0013079086172544385 -8.357182224108528e-05 0.008593705583429478" rpy="0 0 0"/>
     <mass value="0.0035755151099840067"/>
-    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.329686 -0.083393 -0.262227" rpy="0 0 0"/>
+    <origin xyz="0.283731 0.236678 -0.262227" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/sonar_right_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="polymide_kapton"/>
   </visual>
   <collision>
-    <origin xyz="0.329686 -0.083393 -0.262227" rpy="0 0 0"/>
+    <origin xyz="0.283731 0.236678 -0.262227" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/sonar_right_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -121,19 +121,19 @@
 
 <link name="sonar_back_1">
   <inertial>
-    <origin xyz="2.6971190311406157e-05 0.001973447268273698 -0.008526941895356965" rpy="0 0 0"/>
+    <origin xyz="-0.001974140925595058 2.666130880848831e-05 -0.008526941895357076" rpy="0 0 0"/>
     <mass value="0.0035755151099840067"/>
-    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.093709 -0.099338 -0.314591" rpy="0 0 0"/>
+    <origin xyz="0.299675 0.000701 -0.314591" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/sonar_back_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="polymide_kapton"/>
   </visual>
   <collision>
-    <origin xyz="0.093709 -0.099338 -0.314591" rpy="0 0 0"/>
+    <origin xyz="0.299675 0.000701 -0.314591" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/sonar_back_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -142,60 +142,44 @@
 
 <link name="zed2_1">
   <inertial>
-    <origin xyz="-7.524407923120702e-07 -0.00031422029663863427 0.014372758300766675" rpy="0 0 0"/>
+    <origin xyz="0.0003135266393176628 -1.062322295417484e-06 0.014372758300766675" rpy="0 0 0"/>
     <mass value="1.195261039361359"/>
-    <inertia ixx="0.000179" iyy="0.002923" izz="0.002942" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+    <inertia ixx="0.002923" iyy="0.000179" izz="0.002942" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.093709 0.423249 -0.218212" rpy="0 0 0"/>
+    <origin xyz="-0.222912 0.000701 -0.218212" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/zed2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="aluminum_anodized_glossy_grey"/>
+    <material name="paint_enamel_glossy_blue"/>
   </visual>
   <collision>
-    <origin xyz="0.093709 0.423249 -0.218212" rpy="0 0 0"/>
+    <origin xyz="-0.222912 0.000701 -0.218212" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/zed2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
-<link name="zed2_imu">
-  <visual>
-    <origin xyz="-7.524407923120702e-07 -0.00031422029663863427 0.014372758300766675" rpy="0 0 0"/>
-    <geometry>
-      <box size="0.01 0.01 0.01"/>
-    </geometry>
-  </visual>
-
-  <collision>
-    <origin xyz="-7.524407923120702e-07 -0.00031422029663863427 0.014372758300766675" rpy="0 0 0"/>
-    <geometry>
-      <box size="0.01 0.01 0.01"/>
-    </geometry>
-  </collision>
-
-  <xacro:box_inertia m="0.01" w="0.01" d="0.01" h="0.01"/>
-</link>
+<link name="zed2_imu"/>
 
 <link name="zed2_depth_frame"/>
 
 <link name="omniwheel_1">
   <inertial>
-    <origin xyz="-1.761101037361934e-07 -1.7904227966880626e-07 -3.9335926738104376e-07" rpy="0 0 0"/>
+    <origin xyz="4.853849584485204e-07 -4.859916064519449e-07 -3.933592674365549e-07" rpy="0 0 0"/>
     <mass value="5.209742367356124"/>
-    <inertia ixx="0.011006" iyy="0.006588" izz="0.006588" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+    <inertia ixx="0.006588" iyy="0.011006" izz="0.006588" ixy="0.0" iyz="-0.0" ixz="0.0"/>
   </inertial>
   <visual>
-    <origin xyz="0.093709 -0.109266 -0.07248" rpy="0 0 0"/>
+    <origin xyz="0.309604 0.000701 -0.07248" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/omniwheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="steel_satin"/>
   </visual>
   <collision>
-    <origin xyz="0.093709 -0.109266 -0.07248" rpy="0 0 0"/>
+    <origin xyz="0.309604 0.000701 -0.07248" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find adasa_description)/meshes/omniwheel_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
@@ -209,61 +193,60 @@
 </joint> -->
 
 <joint name="right_wheel_joint" type="continuous">
-  <origin xyz="0.134156 -0.20063 0.270081" rpy="0 0 0"/>
+  <origin xyz="0.000292 0.227164 0.270081" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="right_wheel_1"/>
-  <axis xyz="1.0 0.0 0.0"/>
+  <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
 <joint name="left_wheel_joint" type="continuous">
-  <origin xyz="-0.321575 -0.20063 0.270081" rpy="0 0 0"/>
+  <origin xyz="0.000292 -0.228567 0.270081" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="left_wheel_1"/>
-  <axis xyz="1.0 0.0 0.0"/>
+  <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
 <joint name="left_sonar_joint" type="fixed">
-  <origin xyz="0.140987 0.084674 0.26223" rpy="0 0 0"/>
+  <origin xyz="-0.285011 0.233995 0.26223" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="sonar_left_1"/>
 </joint>
 
 <joint name="right_sonar_joint" type="fixed">
-  <origin xyz="-0.329686 0.083393 0.262227" rpy="0 0 0"/>
+  <origin xyz="-0.283731 -0.236678 0.262227" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="sonar_right_1"/>
 </joint>
 
 <joint name="back_sonar_joint" type="fixed">
-  <origin xyz="-0.093709 0.099338 0.314591" rpy="0 0 0"/>
+  <origin xyz="-0.299675 -0.000701 0.314591" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="sonar_back_1"/>
 </joint>
 
 <joint name="zed2_joint" type="fixed">
-  <origin xyz="-0.093709 -0.423249 0.218212" rpy="0 0 ${-pi/2}"/>
+  <origin xyz="0.222912 -0.000701 0.218212" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="zed2_1"/>
 </joint>
 
 <joint name="zed2_imu_joint" type="fixed">
-  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
   <parent link="zed2_1"/>
   <child link="zed2_imu"/>
 </joint>
 
 <joint name="zed2_depth_joint" type="fixed">
-  <!-- <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/> -->
-  <origin xyz="-0.093709 -0.423249 0.218212" rpy="${-pi/2} 0 ${-pi}"/>
-  <parent link="base_link"/>
+  <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+  <parent link="zed2_1"/>
   <child link="zed2_depth_frame"/>
 </joint>
 
 <joint name="omni_joint" type="continuous">
-  <origin xyz="-0.093709 0.109266 0.07248" rpy="0 0 0"/>
+  <origin xyz="-0.309604 -0.000701 0.07248" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="omniwheel_1"/>
-  <axis xyz="-1.0 0.0 0.0"/>
+  <axis xyz="-0.0 -1.0 -0.0"/>
 </joint>
 
 </robot>

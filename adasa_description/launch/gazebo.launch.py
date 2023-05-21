@@ -159,5 +159,5 @@ def generate_launch_description():
         # joint_state_publisher_gui,
         spawn_entity,
         rviz2,
-        # pcl2lscn
+        pcl2lscn
     ])
