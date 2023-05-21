@@ -16,6 +16,12 @@ import xacro
 def generate_launch_description():
 
     package_share = get_package_share_directory('adasa_description')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
+    declare_sim_time_cmd = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='true',
+        description='Use simulation (Gazebo) clock if true')
+
     # URDF file
     urdf_file_name = 'urdf/adasa.xacro'
     model_path = os.path.join(package_share, urdf_file_name)
@@ -47,6 +53,24 @@ def generate_launch_description():
         description='Full path to map yaml file to load'
     )
 
+    slam_params_file = LaunchConfiguration('slam_params_file')
+    
+    declare_slam_params_file_cmd = DeclareLaunchArgument(
+        'slam_params_file',
+        default_value=os.path.join(package_share,
+                                   'config', 'slam_toolbox.yaml'),
+        description='Full path to the ROS2 parameters file to use for the slam_toolbox node')
+    
+    async_slam_toolbox_node = Node(
+        parameters=[
+            slam_params_file,
+            {'use_sim_time': use_sim_time}
+        ],
+        package='slam_toolbox',
+        executable='async_slam_toolbox_node',
+        name='slam_toolbox',
+        output='screen')
+    
     map_server = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
@@ -57,12 +81,6 @@ def generate_launch_description():
         ]),
         launch_arguments={'map': map_path}.items()
     )
-    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-
-    declare_sim_time_cmd = DeclareLaunchArgument(
-        'use_sim_time',
-        default_value='true',
-        description='Use simulation (Gazebo) clock if true')
 
     gazebo_server = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
@@ -147,7 +165,7 @@ def generate_launch_description():
         name='pointcloud_to_laserscan'
     )
 
-    return LaunchDescription([
+    launch_description = LaunchDescription([
         # declare_map_cmd,
         declare_world_cmd,
         # map_server,
@@ -159,5 +177,9 @@ def generate_launch_description():
         # joint_state_publisher_gui,
         spawn_entity,
         rviz2,
-        pcl2lscn
+        # pcl2lscn
+        declare_slam_params_file_cmd,
+        async_slam_toolbox_node
     ])
+
+    return launch_description
