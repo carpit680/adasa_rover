@@ -1,13 +1,14 @@
 # adasa_rover
-A supermart bot for inventory management via RFID area scanning and SLAM using Zed2 camera and 3 sonars at the back.
 
-## Pre-requisites:
+A supermart bot for inventory management via RFID area scanning and SLAM using a Zed2 camera and 3 sonars at the back.
+
+## Pre-requisites
 
 1. Ubuntu 20.04
 2. Ros 2 Foxy Desktop
 3. Time
 
-## Setup instructions:
+## Setup instructions
 
 1. Install Nvidia graphics drivers 530 for your system.
 2. Install CUDA 12.1 from [here](https://developer.nvidia.com/cuda-downloads?target_os=Linux).
@@ -15,7 +16,9 @@ A supermart bot for inventory management via RFID area scanning and SLAM using Z
 4. Install Zed SDK 4.0 from [ZED SDK Download Page](https://www.stereolabs.com/developers/release/)
 
 ## Build ros2 packages
+
 ``` bash
+
 # Create robot workspace
 cd ~
 mkdir -p adasa_ws/src
