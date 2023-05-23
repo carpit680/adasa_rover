@@ -24,7 +24,7 @@ cd ~
 mkdir -p adasa_ws/src
 # Clone adasa_rover repository
 cd adasa_ws/src
-git clone https://github.com/carpit680/adasa_rover
+git clone https://github.com/carpit680/adasa_rover -b foxy-devel
 # Install all dependencies
 cd ..
 rosdep install --from-paths src --ignore-src -r -y
