@@ -178,8 +178,8 @@ def generate_launch_description():
         spawn_entity,
         rviz2,
         # pcl2lscn
-        declare_slam_params_file_cmd,
-        async_slam_toolbox_node
+        # declare_slam_params_file_cmd,
+        # async_slam_toolbox_node
     ])
 
     return launch_description
